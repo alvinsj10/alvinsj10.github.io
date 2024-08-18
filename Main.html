@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio of Alvin Saji John</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: xx-large;
+        }
+
+        .container {
+            text-align: center;
+            position: relative; /* Add position relative to container */
+        }
+
+        #btn {
+            display: none; /* Initially hide the button */
+            position: absolute; /* Position the button */
+            bottom: 10px; /* Adjust vertical distance from the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust horizontal position */
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var text = "Welcome to my portfolio. This website is going to be my digital CV. It contains a little background of who I am and what kind of experiences and skills I have gained over the past few years.";
+            var container = document.getElementById('text');
+            var index = 0;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    container.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 50); // Adjust typing speed here (in milliseconds)
+                } else {
+                    document.getElementById('btn').style.display = 'block'; // Display the button once typing is complete
+                    document.getElementById('btn').addEventListener('click', function() {
+                        window.location.href = "whoAmi.html";
+                    });
+                }
+            }
+
+            typeWriter();
+        });
+
+     
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p id="text"></p>
+        <button id="btn">Click here to find out more about me</button>
+    </div>
+</body>
+</html>
